@@ -12,7 +12,7 @@ Blockchain.prototype.createNewBlock = function(nonce,previousBlockHash,hash){
         hash:hash,
         previousBlockHash:previousBlockHash
     };
-    this.newTransactions = [];
+    this.pendingTransactions = [];
     this.chain.push(newBlock);
 
     return newBlock;
@@ -28,4 +28,7 @@ Blockchain.prototype.createNewTransaction = function(amount, sender , recipient)
         recipient: recipient
     };
     this.pendingTransactions.push(newTransaction);
+
+    return this.getLastBlock()['index'];
 }
+module.exports = Blockchain;
