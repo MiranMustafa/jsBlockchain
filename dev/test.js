@@ -10,16 +10,17 @@ const currentBlockData = [
     },
     {
         amount:20,
-        sender:'JK8KI29DJ49FJ0239KLDFJ',
-        recipient: 'DSDIJFI0JE92JD94N893409U4H'
+        sender:'JKKI29DJ49FJ0239KLDFJ',
+        recipient: 'DSDJFI0JE92JD94N893409U4H'
     },
     {
         amount:30,
-        sender:'9KJDIWK93KDKFJ0239KLDFJ',
+        sender:'9KJDIWK93KDKFJ0239KLFJ',
         recipient: '923JKSDIA94N893409U4H'
     },
 ];
-const nonce = 100;
-
-const a =bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce);
+let a =bitcoin.proofOfWork(previousBlockHash,currentBlockData);
 console.log(a);
+
+let hash = bitcoin.hashBlock(previousBlockHash,currentBlockData,a);
+console.log(hash);
